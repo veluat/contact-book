@@ -15,26 +15,28 @@
   <div class='overlay'></div>
 
   <header class="header">
-    <div class="header__white-wrapper">
-      <div class="header__white-part">
-        <div class="header__content">
-          <div class="header__left">
-            <div class="header__brand">
-              <img class="header__logo" src="assets/icons/book.svg" alt="logo">
-              <span class="header__title">Книга контактов</span>
+    <div class="header__container">
+      <div class="header__white-wrapper">
+        <div class="header__white-part">
+          <div class="header__content">
+            <div class="header__left">
+              <div class="header__brand">
+                <img class="header__logo" src="assets/icons/book.svg" alt="logo">
+                <span class="header__title">Книга контактов</span>
+              </div>
+              <button id="groups-btn-mobile" class="button button--primary">Группы</button>
             </div>
-            <button id="groups-btn-mobile" class="button button--primary">Группы</button>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="header__gray-part">
-      <button id="add-contact-btn" class="button button--secondary">
-        <span class="button__text">Добавить контакт</span>
-        <img class="button__icon" src="assets/icons/add.svg" alt="add-contact">
-      </button>
-      <button id="groups-btn-desktop" class="button button--primary">Группы</button>
+      <div class="header__gray-part">
+        <button id="add-contact-btn" class="button button--secondary">
+          <span class="button__text">Добавить контакт</span>
+          <img class="button__icon" src="assets/icons/add.svg" alt="add-contact">
+        </button>
+        <button id="groups-btn-desktop" class="button button--primary">Группы</button>
+      </div>
     </div>
   </header>
 
@@ -101,7 +103,7 @@
   <div id="delete-group-modal" class="modal">
     <div class="modal__wrapper">
       <button id="close-modal" class="modal__close-button">
-        <svg class="modal__close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        <svg class="modal__close-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"
              xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.3"
                 d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
