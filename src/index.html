@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Julia Popova — Frontend Developer. Test Contact Book"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <title>Книга контактов</title>
+  <link rel="stylesheet" href="styles/main.scss">
+</head>
+<body>
+<div class='container'>
+
+  <div class='overlay'></div>
+
+  <header class="header">
+    <div class="header__white-wrapper">
+      <div class="header__white-part">
+        <div class="header__content">
+          <div class="header__left">
+            <div class="header__brand">
+              <img class="header__logo" src="assets/icons/book.svg" alt="logo">
+              <span class="header__title">Книга контактов</span>
+            </div>
+            <button id="groups-btn-mobile" class="button button--primary">Группы</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__gray-part">
+      <button id="add-contact-btn" class="button button--secondary">
+        <span class="button__text">Добавить контакт</span>
+        <img class="button__icon" src="assets/icons/add.svg" alt="add-contact">
+      </button>
+      <button id="groups-btn-desktop" class="button button--primary">Группы</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div id="contacts-list" class="contacts-list"></div>
+    </div>
+  </main>
+
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar__header">
+      <h3 class="sidebar__title"></h3>
+      <button id="close-sidebar" class="sidebar__close-button">
+        <img class="sidebar__close-icon" src="assets/icons/close.svg" alt="close">
+      </button>
+    </div>
+
+    <div class="sidebar__content">
+      <form id="contact-form" class="sidebar__form">
+        <div class="sidebar__form-group">
+          <input
+              id="person-name"
+              class="sidebar__input input"
+              placeholder="Введите ФИО"
+              type="text"
+              required
+          >
+          <div class="sidebar__form-group__error">Поле является обязательным</div>
+        </div>
+
+        <div class="sidebar__form-group">
+          <input
+              id="phone-number"
+              class="sidebar__input input"
+              placeholder="Введите номер"
+              type="tel"
+              required
+              data-mask="+7 (___) ___-__-__"
+          >
+          <div class="sidebar__form-group__error">Поле является обязательным</div>
+        </div>
+
+        <div class="sidebar__form-group">
+          <div id="contact-group" class="dropdown">
+            <div class="dropdown__selected">Выберите группу</div>
+            <div class="dropdown__menu"></div>
+            <div class="dropdown__chevron"></div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Список групп -->
+      <div id="groups-list" class="sidebar__groups-list"></div>
+
+      <div class="sidebar__footer">
+        <button id="save-contact" class="button button--primary sidebar__button">Сохранить</button>
+        <button id="add-group" class="button button--transparent sidebar__button">Добавить</button>
+        <button id="save-group" class="button button--primary sidebar__button">Сохранить</button>
+      </div>
+    </div>
+  </aside>
+
+  <div id="delete-group-modal" class="modal">
+    <div class="modal__wrapper">
+      <button id="close-modal" class="modal__close-button">
+        <svg class="modal__close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <path opacity="0.3"
+                d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+                fill="black"/>
+        </svg>
+      </button>
+      <div class="modal__content">
+        <h3>Удалить группу?</h3>
+        <div id="modal-message" class="modal__message"></div>
+        <div class="modal__actions">
+          <button id="confirm-delete" class="button button--primary">Да, удалить</button>
+          <button id="cancel-delete" class="button button--transparent">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script type="module" src="main.ts"></script>
+</body>
+</html>
