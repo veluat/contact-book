@@ -1,0 +1,201 @@
+@use '@/styles/utils/mixins';
+
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: -100%;
+  width: 312px;
+  height: 100vh;
+  z-index: 100;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-sidebar);
+
+  &--open {
+    right: 0;
+  }
+
+  &__form-group {
+    position: relative;
+    margin-bottom: 20px;
+
+    &__error {
+      position: absolute;
+      bottom: -22px;
+      left: 0;
+      color: var(--color-danger);
+      font-size: var(--text-size-sm);
+      font-weight: var(--font-weight-normal);
+      display: none;
+    }
+
+    &.has-error {
+      .sidebar__form-group__error {
+        display: block;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-border);
+    padding: 24px;
+  }
+
+  &__close-button {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-bg-placeholder);
+      border-radius: var(--radius-default);
+      outline: none;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__form {
+    display: none;
+
+    &--visible {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px;
+    }
+  }
+
+  &__groups-list {
+    display: none;
+    padding: 24px;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    &--visible {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  /* Стили для управления группами */
+  &__existing-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__group-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__group-input {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-text-placeholder);
+    border-radius: var(--radius-default);
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: var(--color-primary);
+      outline: none;
+    }
+  }
+
+  &__delete-group,
+  &__cancel-add-group {
+    @include mixins.icon-button;
+
+    &:hover {
+      background-color: var(--color-danger);
+      border: none;
+
+      path {
+        fill: var(--color-white);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__empty-message {
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 16px 0;
+    margin: auto;
+  }
+
+  &__new-group {
+    margin-bottom: 20px;
+  }
+
+  &__input,
+  &__select-wrapper {
+    width: 100%;
+  }
+
+  &__select-wrapper {
+    position: relative;
+  }
+
+  &__select {
+    appearance: none;
+    width: 100%;
+    padding-right: 32px;
+    cursor: default;
+  }
+
+  &__select-chevron {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* Общие стили для кнопок сайдбара */
+  &__button {
+    display: none;
+
+    &--visible {
+      display: inline-block;
+      height: 38px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    right: auto;
+    left: -100%;
+
+    &--open {
+      left: 0;
+      right: auto;
+    }
+  }
+}

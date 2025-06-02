@@ -1,0 +1,99 @@
+@use '@/styles/utils/mixins';
+
+.dropdown {
+  @include mixins.input-styles;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 36px;
+
+  &--disabled {
+    opacity: 0.7;
+
+    .dropdown__selected {
+      pointer-events: none;
+    }
+  }
+
+  &__selected {
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &--empty {
+      color: var(--color-text-placeholder);
+      font-style: italic;
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  &--open {
+    border: 1px solid var(--color-primary);
+    box-shadow: var(--shadow-input-focus);
+
+    .dropdown__chevron {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: var(--color-bg-dropdown);
+  border-radius: var(--radius-default);
+  box-shadow: var(--shadow-dropdown);
+  z-index: 100;
+  cursor: default;
+
+  .dropdown--open & {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+  }
+}
+
+.dropdown__item {
+  padding: 10px 0 10px 12px;
+  color: var(--color-text);
+  cursor: default;
+  border-radius: var(--radius-default);
+
+  &:hover, &--selected {
+    background-color: var(--color-bg-dropdown-hover);
+  }
+
+  &:first-child {
+    border-top-left-radius: var(--radius-default);
+    border-top-right-radius: var(--radius-default);
+  }
+
+  &:last-child {
+    border-bottom-left-radius: var(--radius-default);
+    border-bottom-right-radius: var(--radius-default);
+  }
+}
+
+.dropdown__empty {
+  padding: 10px 12px;
+  color: var(--color-text-placeholder);
+  cursor: default;
+}

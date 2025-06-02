@@ -1,0 +1,51 @@
+@use 'utils/mixins';
+
+@use 'base/fonts';
+@use 'base/variables';
+@use 'base/reset';
+
+@use 'components/button';
+@use 'components/sidebar';
+@use 'components/input';
+@use 'components/modal';
+@use 'components/toaster';
+@use 'components/dropdown';
+
+@use 'layouts/header';
+@use 'layouts/main';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main), sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--line-height-sm);
+  font-size: var(--text-size-base);
+  font-weight: var(--font-weight-bold);
+}
+
+.container {
+  max-width: 1960px;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-bg-overlay);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

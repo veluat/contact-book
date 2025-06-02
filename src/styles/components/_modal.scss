@@ -1,0 +1,79 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &--open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__wrapper {
+    position: relative;
+    box-shadow: var(--shadow-popup);
+    background: var(--color-white);
+    width: 343px;
+    height: 222px;
+    border-radius: var(--radius-default);
+    padding: 40px 15px;
+  }
+
+  &__close-button {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-bg-placeholder);
+      border-radius: var(--radius-default);
+      outline: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    height: 100%;
+
+    h3 {
+      margin: 0;
+      font-size: var(--text-size-lg);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  &__message {
+    font-size: var(--text-size-sm);
+    font-weight: var(--font-weight-normal);
+    text-align: center;
+    color: var(--color-text-secondary);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+}

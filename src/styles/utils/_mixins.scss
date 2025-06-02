@@ -1,0 +1,36 @@
+@mixin input-styles {
+  width: 100%;
+  background-color: var(--color-bg-placeholder);
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
+  font-size: var(--text-size-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-md);
+  padding-left: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &:hover {
+    border: 1px solid var(--color-primary);
+  }
+
+  &:focus-visible {
+    border: 1px solid var(--color-primary);
+    box-shadow: var(--shadow-input-focus);
+    color: var(--color-text);
+  }
+}
+
+@mixin icon-button {
+  min-width: 38px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-default);
+  transition: background-color 0.2s;
+}

@@ -1,0 +1,22 @@
+@use '@/styles/utils/mixins';
+
+.input, .select {
+  @include mixins.input-styles;
+
+  &::placeholder {
+    color: var(--color-text-placeholder);
+  }
+
+  &.error {
+    border-color: var(--color-danger) !important;
+  }
+}
+
+.input-error {
+  border-color: var(--color-danger) !important;
+}
+
+input[data-mask]::placeholder {
+  color: var(--color-text-placeholder);
+  opacity: 1;
+}

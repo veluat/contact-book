@@ -1,0 +1,161 @@
+@use '@/styles/utils/mixins';
+
+.main {
+  position: relative;
+  padding: 0 16px 16px;
+  height: calc(100vh - 200px);
+
+  @media (min-width: 768px) {
+    height: calc(100vh - 70px);
+  }
+}
+
+.contacts-list {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 1;
+
+  @media (min-width: 768px) {
+    padding: 56px 0 0 0;
+    width: 100%;
+    max-width: 1160px;
+  }
+
+  .empty-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color-text-empty);
+    width: 100%;
+  }
+}
+
+.contacts-group {
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
+  box-shadow: var(--shadow-card);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background-color: var(--color-white);
+    cursor: pointer;
+  }
+
+  &__title {
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  &__chevron {
+    transition: transform 0.3s ease;
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  &--open {
+    .contacts-group__chevron {
+      transform: rotate(180deg);
+    }
+
+    .contacts-group__content {
+      max-height: 1000px;
+    }
+
+    .contacts-group__title {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.contact {
+  border-top: 1px solid var(--color-border);
+  padding: 24px;
+  background-color: var(--color-white);
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    padding-bottom: 16px;
+    color: var(--color-text-placeholder);
+    font-weight: var(--font-weight-normal);
+
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__phone-value {
+    background-color: var(--color-white);
+    font-weight: var(--font-weight-normal);
+    border: none;
+    outline: none;
+    width: max-content;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      margin-right: 34px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__edit-button,
+  &__delete-button {
+    @include mixins.icon-button;
+  }
+
+  &__delete-button {
+    &:hover {
+      background-color: var(--color-danger);
+      border: none;
+
+      path {
+        fill: var(--color-white);
+        opacity: 1;
+      }
+
+    }
+  }
+
+  &__edit-button {
+    &:hover {
+      background-color: var(--color-primary);
+      border: none;
+
+      path {
+        fill: var(--color-white);
+        opacity: 1;
+      }
+
+    }
+  }
+
+}

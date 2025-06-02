@@ -1,0 +1,62 @@
+.toaster-container {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1100;
+}
+.toaster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-popup);
+  border-radius: var(--radius-default);
+  height: 100%;
+  min-height: 50px;
+
+  &--show {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  &--hide {
+    animation: fadeOut 0.3s ease-in forwards;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__message {
+    font-size: var(--text-size-sm);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-md);
+  }
+
+  @media (min-width: 768px) {
+    bottom: 60px;
+    right: 60px;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

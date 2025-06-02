@@ -1,0 +1,65 @@
+:root {
+  // Основные цвета
+  --color-primary: #005BFE;
+  --color-secondary: #F81155;
+  --color-danger: #EA3D2F;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  // Фоновые цвета
+  --color-bg: #F6F7F9;
+  --color-bg-overlay: rgba(0, 0, 0, 0.3);
+  --color-bg-placeholder: rgba(0, 0, 0, 0.05);
+  --color-bg-dropdown: #F2F2F2;
+  --color-bg-dropdown-hover: #E4E3E3;
+
+  // Текст и плейсхолдеры
+  --color-text: #000000;
+  --color-text-empty: rgba(0, 0, 0, 0.3);
+  --color-text-light: #FFFFFF;
+  --color-text-placeholder: rgba(0, 0, 0, 0.5);
+
+  // Состояния кнопок
+  --button-primary-hover: #0047C6;
+  --button-secondary-hover: #D1003E;
+  --button-transparent-hover: rgba(0, 91, 254, 0.1);
+
+  // Тени
+  --shadow-popup: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+  --shadow-input-focus: 0 0 5px 0 rgba(0, 91, 254, 0.4);
+
+  // Границы
+  --radius-default: 6px;
+  --color-border: rgba(0, 0, 0, 0.1);
+
+  // Отступы
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-xl: 0 380px;
+  --space-button-mobile: 10px 14px;
+  --space-button-desktop: 14px 10px 14px;
+  --space-modal-mobile: 40px 15px;
+  --space-modal-desktop: 40px;
+
+  // Типографика
+  --text-size-sm: 14px;
+  --text-size-base: 18px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --line-height-sm: 120%;
+  --line-height-md: 130%;
+  --font-main: 'Circe', sans-serif;
+
+  // Размеры экранов
+  --screen-min: 375px;
+  --screen-max: 1920px;
+
+  --screen-mobile: 375px;
+  --screen-tablet: 768px;
+  --screen-desktop: 1200px;
+
+  // Анимации
+  --transition-default: all 1s;
+  --transition-sidebar: right 1s ease, left 1s ease;
+}
