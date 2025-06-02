@@ -1,9 +1,11 @@
-import './assets/scss/main.scss';
+import {initPhoneMask} from '@/utils/phone-mask.ts'
+import {App} from '@core/app.ts'
 
-import Button from './components/button/button';
+document.addEventListener('DOMContentLoaded', () => {
+  const phoneInput = document.getElementById('phone-number') as HTMLInputElement;
+  if (phoneInput) {
+    initPhoneMask(phoneInput);
+  }
 
-const app = document.getElementById('app')!;
-const header = new Header(app);
-header.render();
-const submitButton = new Button('Сохранить', 'primary');
-submitButton.render(app);
+  new App();
+});
