@@ -192,7 +192,7 @@ export class App {
     const groups = this.groupService.getAllGroups()
 
     if (groups.length === 0) {
-      groupsList.innerHTML = '<p class="sidebar__empty-message">Нет созданных групп</p>'
+      groupsList.innerHTML = '<p class="sidebar__empty-message">Нет созданных групп</p>';
       return
     }
 
@@ -326,6 +326,7 @@ export class App {
       this.selectedGroupId = groups.length > 0 ? groups[0].id : null
 
       this.initGroupDropdown()
+      this.setupGroupDropdownListener();
     } else {
       groupsList.classList.add('sidebar__groups-list--visible')
       addGroupBtn.classList.add('sidebar__button--visible')
@@ -338,21 +339,30 @@ export class App {
     document.body.style.overflow = 'hidden'
   }
 
+  private setupGroupDropdownListener(): void {
+    if (this.groupDropdown) {
+      this.groupDropdown.bind('change', (groupId: string) => {
+        this.selectedGroupId = groupId;
+      });
+    }
+  }
+
   private initGroupDropdown(): void {
-    const groups = this.groupService.getAllGroups()
-    const dropdownElement = document.querySelector('#contact-group')
+    const groups = this.groupService.getAllGroups();
+    const dropdownElement = document.querySelector('#contact-group');
 
     if (groups.length > 0) {
-      this.groupDropdown = new Dropdown('#contact-group')
-      this.groupDropdown.dataItems(groups)
-      this.selectedGroupId = groups[0].id
+      this.groupDropdown = new Dropdown('#contact-group');
+      this.groupDropdown.dataItems(groups);
+      this.selectedGroupId = groups[0].id;
+      this.setupGroupDropdownListener();
     } else if (dropdownElement) {
       dropdownElement.innerHTML = `
       <div class="dropdown__selected dropdown__selected--empty">
         Нет созданных групп
       </div>
-    `
-      dropdownElement.classList.add('dropdown--disabled')
+    `;
+      dropdownElement.classList.add('dropdown--disabled');
     }
   }
 
@@ -383,7 +393,17 @@ export class App {
     let isValid = true
 
     const groups = this.groupService.getAllGroups()
-    if (groups.length > 0 && !this.selectedGroupId) {
+    if (groups.length === 0) {
+      this.toaster.show({
+        type: 'error',
+        message: 'Сначала создайте группу.'
+      })
+      this.closeSidebar()
+      this.openSidebar('groups')
+      return
+    }
+
+    if (!this.selectedGroupId) {
       this.toaster.show({
         type: 'error',
         message: 'Пожалуйста, выберите группу'
@@ -564,9 +584,9 @@ export class App {
     phoneInput.value = formattedPhone
 
     if (this.groupDropdown) {
-      this.groupDropdown.dataItems(this.groupService.getAllGroups())
-      this.groupDropdown.selectItem(contact.groupId)
-      this.selectedGroupId = contact.groupId
+      this.groupDropdown.dataItems(this.groupService.getAllGroups());
+      this.groupDropdown.selectItem(contact.groupId);
+      this.selectedGroupId = contact.groupId;
     }
 
     this.openSidebar('add-contact')
