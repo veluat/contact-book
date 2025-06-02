@@ -148,7 +148,9 @@ export class App {
         id="new-group-input"
       >
       <button class="sidebar__cancel-add-group">
-        <img class="sidebar__delete-icon" src="../assets/icons/delete.svg" alt="delete group img">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path opacity="0.3" d="M6.66676 20.3889C6.66676 21.55 7.61676 22.5 8.77787 22.5H17.2223C18.3834 22.5 19.3334 21.55 19.3334 20.3889V7.72222H6.66676V20.3889ZM9.26343 12.8733L10.7518 11.385L13.0001 13.6228L15.2379 11.385L16.7262 12.8733L14.4884 15.1111L16.7262 17.3489L15.2379 18.8372L13.0001 16.5994L10.7623 18.8372L9.27398 17.3489L11.5118 15.1111L9.26343 12.8733ZM16.6945 4.55556L15.639 3.5H10.3612L9.30565 4.55556H5.61121V6.66667H20.389V4.55556H16.6945Z"/>
+          </svg>
       </button>
     </div>
   `
@@ -214,9 +216,9 @@ export class App {
         data-id="${group.id}"
       >
       <button class="sidebar__delete-group" data-id="${group.id}">
-        <svg class="sidebar__delete-icon" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path opacity="0.3" d="M6.66676 20.3889C6.66676 21.55 7.61676 22.5 8.77787 22.5H17.2223C18.3834 22.5 19.3334 21.55 19.3334 20.3889V7.72222H6.66676V20.3889ZM9.26343 12.8733L10.7518 11.385L13.0001 13.6228L15.2379 11.385L16.7262 12.8733L14.4884 15.1111L16.7262 17.3489L15.2379 18.8372L13.0001 16.5994L10.7623 18.8372L9.27398 17.3489L11.5118 15.1111L9.26343 12.8733ZM16.6945 4.55556L15.639 3.5H10.3612L9.30565 4.55556H5.61121V6.66667H20.389V4.55556H16.6945Z" fill="currentColor"/>    
-        </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path opacity="0.3" d="M6.66676 20.3889C6.66676 21.55 7.61676 22.5 8.77787 22.5H17.2223C18.3834 22.5 19.3334 21.55 19.3334 20.3889V7.72222H6.66676V20.3889ZM9.26343 12.8733L10.7518 11.385L13.0001 13.6228L15.2379 11.385L16.7262 12.8733L14.4884 15.1111L16.7262 17.3489L15.2379 18.8372L13.0001 16.5994L10.7623 18.8372L9.27398 17.3489L11.5118 15.1111L9.26343 12.8733ZM16.6945 4.55556L15.639 3.5H10.3612L9.30565 4.55556H5.61121V6.66667H20.389V4.55556H16.6945Z"/>
+          </svg>
       </button>
     `
 
@@ -539,9 +541,9 @@ export class App {
       groupElement.innerHTML = `
       <div class="contacts-group__header">
         <h3 class="contacts-group__title">${group.name}</h3>
-        <svg class="contacts-group__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.885 8.29498L12.295 12.875L7.70498 8.29498L6.29498 9.70498L12.295 15.705L18.295 9.70498L16.885 8.29498Z" fill="black"/>
-         </svg>
+        <svg class="contacts-group__chevron" width='24' height='24'>
+          <use href="/sprite.svg#icon-chevron"></use>
+        </svg>
       </div>
       <div class="contacts-group__content">
         ${groupContacts.map(contact => this.createContactElement(contact)).join('')}
@@ -626,13 +628,13 @@ export class App {
         <div class="contact__phone-value">${formattedPhone}</div>
         <div class="contact__action">
         <button class="contact__edit-button">
-          <svg class="contact__edit-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path opacity="0.3" d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z" fill="black"/>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path opacity="0.3" d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z"/>
           </svg>
         </button>
         <button class="contact__delete-button">
-          <svg class="contact__delete-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path opacity="0.3" d="M6.66676 20.3889C6.66676 21.55 7.61676 22.5 8.77787 22.5H17.2223C18.3834 22.5 19.3334 21.55 19.3334 20.3889V7.72222H6.66676V20.3889ZM9.26343 12.8733L10.7518 11.385L13.0001 13.6228L15.2379 11.385L16.7262 12.8733L14.4884 15.1111L16.7262 17.3489L15.2379 18.8372L13.0001 16.5994L10.7623 18.8372L9.27398 17.3489L11.5118 15.1111L9.26343 12.8733ZM16.6945 4.55556L15.639 3.5H10.3612L9.30565 4.55556H5.61121V6.66667H20.389V4.55556H16.6945Z" fill="currentColor"/>    
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path opacity="0.3" d="M6.66676 20.3889C6.66676 21.55 7.61676 22.5 8.77787 22.5H17.2223C18.3834 22.5 19.3334 21.55 19.3334 20.3889V7.72222H6.66676V20.3889ZM9.26343 12.8733L10.7518 11.385L13.0001 13.6228L15.2379 11.385L16.7262 12.8733L14.4884 15.1111L16.7262 17.3489L15.2379 18.8372L13.0001 16.5994L10.7623 18.8372L9.27398 17.3489L11.5118 15.1111L9.26343 12.8733ZM16.6945 4.55556L15.639 3.5H10.3612L9.30565 4.55556H5.61121V6.66667H20.389V4.55556H16.6945Z"/>
           </svg>
         </button>
         </div>

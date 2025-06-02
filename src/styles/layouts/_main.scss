@@ -54,7 +54,7 @@
   }
 
   &__chevron {
-    transition: transform 0.3s ease;
+    @include mixins.chevron;
   }
 
   &__content {
@@ -130,6 +130,10 @@
   &__edit-button,
   &__delete-button {
     @include mixins.icon-button;
+
+    &:hover {
+      color: var(--color-white);
+    }
   }
 
   &__delete-button {
@@ -137,11 +141,11 @@
       background-color: var(--color-danger);
       border: none;
 
-      path {
-        fill: var(--color-white);
-        opacity: 1;
+      svg {
+        path {
+          opacity: 1;
+        }
       }
-
     }
   }
 
@@ -150,11 +154,11 @@
       background-color: var(--color-primary);
       border: none;
 
-      path {
-        fill: var(--color-white);
-        opacity: 1;
+      svg {
+        path {
+          opacity: 1;
+        }
       }
-
     }
   }
 

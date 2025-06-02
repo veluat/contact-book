@@ -49,3 +49,19 @@ body {
     pointer-events: auto;
   }
 }
+
+.delete-button {
+  @include mixins.icon-button;
+
+  &:hover {
+    color: var(--color-white);
+    background-color: var(--color-danger);
+    border: none;
+
+    svg {
+      path {
+        opacity: 1;
+      }
+    }
+  }
+}

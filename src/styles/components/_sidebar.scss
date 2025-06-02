@@ -124,12 +124,19 @@
     @include mixins.icon-button;
 
     &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  &__delete-group {
+    &:hover {
       background-color: var(--color-danger);
       border: none;
 
-      path {
-        fill: var(--color-white);
-        opacity: 1;
+      svg {
+        path {
+          opacity: 1;
+        }
       }
     }
   }

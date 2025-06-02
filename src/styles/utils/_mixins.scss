@@ -33,4 +33,40 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-default);
   transition: background-color 0.2s;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@mixin close-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-bg-placeholder);
+    border-radius: var(--radius-default);
+    outline: none;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+}
+
+@mixin chevron {
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  transition: transform 0.3s ease;
 }

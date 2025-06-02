@@ -1,3 +1,5 @@
+@use '@/styles/utils/mixins';
+
 .modal {
   position: fixed;
   top: 0;
@@ -29,24 +31,13 @@
   }
 
   &__close-button {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include mixins.close-button;
     position: absolute;
     top: 10px;
     right: 10px;
     background: none;
     border: none;
     cursor: pointer;
-
-    &:hover,
-    &:focus-visible {
-      background-color: var(--color-bg-placeholder);
-      border-radius: var(--radius-default);
-      outline: none;
-    }
   }
 
   &__content {
