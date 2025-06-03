@@ -19,7 +19,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['imask'],
-    exclude: ['vite-plugin-svg-icons']
   },
   build: {
     outDir: '../dist',
