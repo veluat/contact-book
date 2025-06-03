@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite'
 import path from 'path'
+import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   root: './src',
@@ -17,6 +18,7 @@ export default defineConfig({
     },
     extensions: ['.ts', '.js', '.scss', '.svg']
   },
+  plugins: [svgr()],
   optimizeDeps: {
     include: ['imask'],
     exclude: ['vite-plugin-svg-icons']
@@ -24,12 +26,10 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true,
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
       },
     },
   },

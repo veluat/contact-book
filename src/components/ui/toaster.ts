@@ -10,12 +10,26 @@ export class Toaster {
     document.body.appendChild(this.container);
   }
 
+  private getIconSvg(type: string): string {
+    const icons = {
+      success: 'icon-success',
+      error: 'icon-error'
+    };
+    const iconId = icons[type as keyof typeof icons] || 'icon-success';
+
+    return `
+      <svg class="toaster__icon">
+        <use href="/sprite.svg#${iconId}"></use>
+      </svg>
+    `;
+  }
+
   public show(config: ToastConfig): void {
     const toast = document.createElement('div');
     toast.className = `toaster toaster--${config.type}`;
 
     toast.innerHTML = `
-      <img class="toaster__icon" src="../assets/icons/${this.getIconName(config.type)}.svg" alt="${config.type}">
+      ${this.getIconSvg(config.type)}
       <div class="toaster__message">${config.message}</div>
     `;
 
@@ -33,13 +47,5 @@ export class Toaster {
         }
       });
     }, config.duration || this.toastDuration);
-  }
-
-  private getIconName(type: string): string {
-    const icons = {
-      success: 'done',
-      error: 'error'
-    };
-    return icons[type as keyof typeof icons] || 'done';
   }
 }
