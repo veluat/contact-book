@@ -1,6 +1,5 @@
 import {defineConfig} from 'vite'
 import path from 'path'
-import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
   root: './src',
@@ -18,7 +17,6 @@ export default defineConfig({
     },
     extensions: ['.ts', '.js', '.scss', '.svg']
   },
-  plugins: [svgr()],
   optimizeDeps: {
     include: ['imask'],
     exclude: ['vite-plugin-svg-icons']
